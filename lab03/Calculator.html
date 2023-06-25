@@ -1,0 +1,79 @@
+<!-- References used www.w3schools.com -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.4/math.js"
+    integrity="sha512-BbVEDjbqdN3Eow8+empLMrJlxXRj5nEitiCAK5A1pUr66+jLVejo3PmjIaucRnjlB0P9R3rBUs3g5jXc8ti+fQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="calculator">
+        <input type="text" name="InputData" value="" placeholder="0" id="inputValue">
+        <button class="Operations" type="button" name="CL" onclick="Clear()">CL</button>
+        <button class="Operations" type="button" name="DEL" onclick="Delete()">DEL</button>
+        <button class="Operations" type="button" name="button" onclick="View('%')">%</button>
+        <button class="Operations" type="button" name="button" onclick="View('/')">/</button>
+        <button class="Operations" value="sin(" type="button" name="sin" onclick="inputValue.value+='sin('">sin</button>
+        <button type="button" name="7" onclick="View('7')">7</button>
+        <button type="button" name="8" onclick="View('8')">8</button>
+        <button type="button" name="9" onclick="View('9')">9</button>
+        <button class="Operations" type="button" name="button" onclick="View('*')">*</button>
+        <button class="Operations" type="button" name="cos" onclick="inputValue.value+='cos('">cos</button>
+        <button type="button" name="4" onclick="View('4')">4</button>
+        <button type="button" name="5" onclick="View('5')">5</button>
+        <button type="button" name="6" onclick="View('6')">6</button>
+        <button class="Operations" type="button" name="button" onclick="View('-')">-</button>
+        <button class="Operations" type="button" name="tan"onclick="inputValue.value+='tan('">tan</button>
+        <button type="button" name="1" onclick="View('1')">1</button>
+        <button type="button" name="2" onclick="View('2')">2</button>
+        <button type="button" name="3" onclick="View('3')">3</button>
+        <button class="Operations" type="button" name="button" onclick="View('+')">+</button>
+        <button class="Operations" type="button" name="button" onclick="View('^')">^</button>
+        <button class="Operations" type="button" name="button" onclick="View('.')">.</button>
+        <button type="button" name="0" onclick="View('0')">0</button>
+        <button class="Operations" type="button" name="button" onclick="Calculate()">=</button>
+        <button class="Operations" type="button" name="button" onclick="View(')')">)</button>
+        <button class="Operations" type="button" name="Sqrt"onclick="inputValue.value+='sqrt('">sqrt</button>
+      </div>
+    </div>
+    <script type="text/javascript">
+      let output = document.getElementById('inputValue');
+      function View(n)
+      {
+        output.value += n;
+      }
+      function Calculate()
+      {
+        try
+        {
+          //Scientific calculations
+          //sin functionality deg to radians
+          output.value = output.value.replace(/sin\(/g, 'sin(' + Math.PI / 180 + '*');
+          //cos functionality deg to radians
+          output.value = output.value.replace(/cos\(/g, 'cos(' + Math.PI / 180 + '*');
+          //tan functionality deg to radians
+          output.value = output.value.replace(/tan\(/g, 'tan(' + Math.PI / 180 + '*');
+
+          output.value = math.evaluate(output.value);
+        }
+        catch (e)
+         {
+           output.value = "Error";
+        }
+      }
+      function Clear()
+      {
+        output.value = "";
+      }
+      function Delete()
+      {
+        output.value = output.value.slice(0,-1);
+      }
+    </script>
+  </body>
+</html>
