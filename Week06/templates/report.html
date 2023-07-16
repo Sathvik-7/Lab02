@@ -1,0 +1,21 @@
+{% extends "homepage.html" %}
+{% block content %}
+<div class="jumbotron">
+  {% if t == 1%}
+    <p>Let see if your password mets the requirements</p>
+    <p>Your Password passed the 3 requirements</p>
+  {% elif c>=3 and t!=1 %}
+    <p style="color:red">You have failed to login</p>
+    <p  style="color:red">Only 3 failed attempts allowed</p>
+  {% else %}
+    <p>Let see if your password meets the requirements</p>
+    <p>Oh no!Looks like you had issue with your password</p>
+    <p>Here are the requirements you failed</p>
+    <ul>
+      {% for r in result %}
+        <li>{{r}}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</div>
+{% endblock %}

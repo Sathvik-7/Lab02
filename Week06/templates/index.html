@@ -1,0 +1,20 @@
+{% extends "homepage.html" %}
+{% block content %}
+<div class="jumbotron">
+  <p>Welcome to Password Check</p>
+  <p>Let's see if your password is secure!</p>
+  <p>Fill out form below with a User Name and password that has these restraints</p>
+  <ul>
+    <li>Must have an upper case letter somewhere.</li>
+    <li>Must have a lower case letter somewhere.</li>
+    <li>Must have a number at the end.</li>
+  </ul>
+  <form class="" action="{{url_for('report')}}" method="POST">
+    <label for="UserName">UserName</label>
+    <input type="text" name="UserName" value="">
+    <label for="Password">Password</label>
+    <input type="text" name="Password" value="">
+    <input type="submit" name="Submit Form" value="SubmitForm">
+  </form>
+</div>
+{% endblock %}
