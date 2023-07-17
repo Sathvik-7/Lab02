@@ -50,4 +50,4 @@ def report():
     return render_template('report.html', result = resultSet, t = temp , c = session.get('attempt'))
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
