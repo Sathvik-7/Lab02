@@ -1,0 +1,126 @@
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+      body {font-family: Arial, Helvetica, sans-serif;}
+      * {box-sizing: border-box;}
+
+      input[type=text], select, textarea
+      {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical;
+      }
+
+      input[type=password], select, textarea
+      {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical;
+      }
+
+      input[type=email], select, textarea
+      {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical;
+      }
+
+      input[type=submit] {
+        width: 100%;
+        background-color: DodgerBlue;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      input[type=submit]:hover {
+        background-color: MediumSeaGreen;
+      }
+
+      .container {
+        border-radius: 0px;
+        background-color: #f2f2f2;
+        padding: 20px;
+        width:25%;
+      }
+
+      .signin {
+        background-color: #B8B8B8;
+        text-align: center;
+        color:white;
+        height:2pc;
+        padding-top:5px;
+      }
+    </style>
+  </head>
+  <body>
+
+      <form action="/SignUp" method='POST'>
+        <div class="container">
+          <h3 align="center">Register</h3>
+          <p>Create your account. Its free and only takes a minute</p>
+
+          <table>
+            <tr>
+              <td><input type="text" id="fname" name="firstname" placeholder="First Name.."></td>
+              <td style="padding:5px;"></td>
+              <td><input type="text" id="lname" name="lastname" placeholder="Last Name.."></td>
+            </tr>
+          </table>
+          <input type="email" id="email" name="email" placeholder="Email">
+
+          <input type="text" id="PW" name="password" placeholder="Password..">
+
+          <input type="text" id="CPW" name="Cnpassword" placeholder="Confirm Password..">
+          {% if result|length > 0 %}
+            <p>Here are the requirements you failed</p>
+            <ul>
+              {% for r in result %}
+                <li style='color:red;'>{{r}}</li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <p></p>
+
+          {% endif %}
+
+          <input type="submit" value="Register Now">
+
+          <br>
+
+
+        </div>
+
+          <div class="container signin">
+            <p >Already have an account? <a href="{{url_for('SignIn')}}" style="color:white;">Sign in</a></p>
+          </div>
+
+      </form>
+  </body>
+</html>
+{% endblock %}
