@@ -1,0 +1,49 @@
+<html>
+<body>
+<h2>Enter a new record</h2>
+
+<form method="POST" action='http://localhost/save.py'>
+ <table>
+ <tr>
+  <td>Full name:</td>
+  <td><input type="text" id="fname" name="fname"></td>
+</tr>
+<tr>  
+  <td>Midterm #1:</td>
+  <td><input type="text" id="midterm1" name="midterm1"></td>
+ </tr>
+<tr>
+  <td>Midterm #2:</td>
+  <td><input type="text" id="midterm2" name="midterm2"></td>
+</tr>
+<tr>
+  <td>Final Exam:</td>
+  <td><input type="text" id="midterm3" name="midterm3"></td>
+</tr>
+<tr>
+  <td><input type="submit" value="Save"></td>
+</tr>
+</table>
+</form> 
+
+<form method="POST" action="http://localhost/index3.py">
+<table>
+<tr>
+<td><input type="submit" value="Display all records"></td>
+</tr>
+</table>
+</form>
+
+<form method="POST" action='http://localhost/records.py' >
+<table>
+<tr>
+ <td>Full Name:</td>
+ <td><input type="text" id="fullname" name="fullname"></td>
+</tr>
+<tr>
+ <td><input type="submit" value="Delete"></td>
+</tr>
+</table>
+</form>
+</body>
+</html>
